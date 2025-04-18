@@ -1,0 +1,47 @@
+@use './_reset';
+@use './_mixin' as *;
+@use './_common' as c;
+
+.text-selector{
+    font-size: calc(18 / c.$pcw * 100vw);   
+    margin-top: calc(79 / c.$pcw) * 100%;
+    line-height: 1;
+    text-align: center;
+    color: c.$main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    gap: 0.5px;
+    .letter {
+        overflow: hidden;
+        color: transparent;
+        text-align: center;
+        transition: text-shadow 0.3s;
+        transition-delay: calc(var(--index) * 0.05s);
+        text-shadow: 0 -1.5em 0 c.$main, 0 0 0 c.$main;
+    }
+    &.move {
+        .letter {
+            text-shadow: 0 0 0 c.$main, 0 1.5em 0 c.$main;
+        }
+    }
+    @include sp{
+        font-size: calc(13 / c.$spw * 100vw);
+        margin-top: calc(43 / c.$spw) * 100%;    
+    }
+}
+
+.past-articles{
+    line-height: 1;
+    font-size: calc(32 / c.$pcw * 100vw);   
+    margin: calc(23 / c.$pcw) * 100% 0 calc(79 / c.$pcw) * 100%;
+    text-align: center;
+    color: c.$main;
+    @include sp{
+        font-size: calc(20 / c.$spw * 100vw);
+        margin: calc(23 / c.$spw) * 100% 0 calc(50 / c.$spw) * 100%;    
+    }
+}
+
+

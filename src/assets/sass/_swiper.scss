@@ -1,0 +1,88 @@
+@use './_reset';
+@use './_mixin' as *;
+@use './_common' as c;
+
+
+
+.swiper{
+    padding-bottom: calc(77 / c.$pcw)* 100%!important;
+    margin-bottom: calc(44 / c.$pcw)* 100%!important;
+    @include sp{
+        padding-bottom: calc(52 / c.$spw)* 100%!important;
+        margin-bottom: calc(69 / c.$spw)* 100%!important;
+    }
+}
+
+
+.swiper-pagination{
+    line-height: 1;
+    font-size: 18px;
+    color: c.$main!important;
+    margin-bottom: 0.5%;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 500!important;
+    @include sp{
+        font-size: calc(13 / c.$spw * 100vw);
+        margin-bottom: 1.5%;
+    }
+}
+.swiper-pagination-fraction{
+    bottom: 0!important;
+    top: unset!important;
+}
+/* 前へ次への矢印カスタマイズ */
+.swiper-button-prev,
+.swiper-button-next {
+    height: 35px!important;
+    width: 75.6px!important;
+    top: unset!important;
+    bottom: 0!important;
+    line-height: 0;
+    @include sp{
+        height: 25px!important;
+        width: 54px!important;
+    }
+}
+
+.swiper-button-prev{
+    left: 42%!important;
+    transform: translateX(-50%);
+    right: unset!important;
+    @include sp{
+        left: 30%!important;
+    }
+}
+.swiper-button-next{
+    right: 42%!important;
+    transform: translateX(50%);
+    left: unset!important;
+    @include sp{
+        right: 30%!important;
+    }
+}
+/* 前へ次への矢印カスタマイズ */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: ""!important;
+    height: 35px!important;
+    width: 75.6px!important;
+    margin: auto;
+    position: absolute;
+    top: unset !important;
+    bottom: 0 !important;
+    line-height: 0;
+    @include sp{
+        height: 25px!important;
+        width: 54px!important;
+    }
+}
+/* 前への矢印カスタマイズ */
+.swiper-button-prev::after {
+    background-image: url(/assets/img/back.png);
+}
+/* 次への矢印カスタマイズ */
+.swiper-button-next::after {
+    background-image: url(/assets/img/next.png);
+}    

@@ -1,0 +1,123 @@
+@use './_reset';
+@use './_mixin' as *;
+@use './_common' as c;
+
+
+.articles-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-bottom: 1px solid c.$main;
+    border-top: 1px solid c.$main;
+    
+    @include sp{
+        display: block;    
+    }
+}
+.article-content{
+    width: calc(633 / c.$pcw) * 100%;    
+    @include sp{
+        width: 100%;
+    }
+}
+
+.article-month{
+    width: 100%;
+    text-align: center;
+    font-size: calc(26 / c.$pcw * 100vw);
+    background: c.$main;
+    color: #fff;
+    line-height: 1;
+    padding: calc(23 / 633) * 100% 0;
+    @include sp{
+        font-size: calc(16 / c.$spw * 100vw);
+        padding: calc(15 / c.$spw) * 100% 0;
+    }
+}
+
+.item-flex{
+    display: flex;
+    border-right: 1px solid c.$main;
+    @include sp{
+        border-right: none;
+    }
+
+    .item{
+        width: 50%;
+        &:first-of-type{
+            border-right: 1px solid c.$main;
+        }
+        .item_ph{
+            line-height: 0;
+            width: calc(234 / 317) * 100%;
+            margin: calc(37 / 317) * 100% auto 0;
+            overflow: hidden;
+            img{
+                transform: scale(1,1);
+                transition: all .5s ease;
+            }
+            &:hover{
+                img{
+                    transform: scale(1.1,1.1);
+                }
+            }
+        }
+        @include sp{
+            width: 100%;
+        }
+    }
+}
+.right-line{
+    position: relative;
+    display: block;
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        background: #fff;
+    }
+}
+.left-line{
+    border-left: 1px solid c.$main;
+    @include sp{
+        border-left: none;
+    }
+}
+
+
+
+.text-wrap{
+    width: calc(234 / 317) * 100%;
+    margin: calc(15 / 317) * 100% auto 0;    
+    .item_catch{
+        font-size: calc(15 / c.$pcw * 100vw);
+        line-height: calc(20 / 15);
+        color: c.$main;
+        @include sp{
+            font-size: calc(13 / c.$spw * 100vw);
+        }
+    }
+    .people{
+        margin-top: calc(1 / 234) * 100%;
+        a{
+            color: c.$main;
+            font-size: calc(12 / c.$pcw * 100vw);
+            line-height: 1;
+            @include sp{
+                font-size: calc(13 / c.$spw * 100vw);
+            }
+        }
+    }
+    .date{
+        margin: calc(5 / 234) * 100% 0 calc(31 / 234) * 100%;
+        color: c.$main;
+        font-size: calc(12 / c.$pcw * 100vw);     
+        opacity: .8;   
+        @include sp{
+            font-size: calc(10.8 / c.$spw * 100vw);
+        }
+    }
+}
